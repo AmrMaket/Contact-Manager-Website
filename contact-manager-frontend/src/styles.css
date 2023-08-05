@@ -2,3 +2,33 @@
     display: flex;
     justify-content: center;
 }
+
+/* .field input{
+    width : 100%;
+    margin: 15px 15px ;
+} */
+
+.field{
+    display: flex;
+    flex-direction: column;
+    width : 80%;
+    margin-top: 15px;
+}
+
+.main{
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    height: 30px;
+}
+
+h2{
+    margin-left: 40px;
+}
+
+.map{
+    height: 180px;
+}
