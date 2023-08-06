@@ -23,4 +23,11 @@ class ContactControlllers extends Controller {
 
         return response(["contacts" => $contact]);
     }
+
+    public function getContacts()
+    {
+        $contacts = Contact::all();
+
+        return response(["contacts" => $contacts]);
+    }
 }
