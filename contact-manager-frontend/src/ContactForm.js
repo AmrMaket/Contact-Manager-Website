@@ -67,7 +67,7 @@ const ContactForm = () => {
           <button className='add-button'>Add</button>
         </form>
       </div>
-      <div className='map'>
+      {/* <div className='map'>
         <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -79,7 +79,7 @@ const ContactForm = () => {
           </Popup>
         </Marker>}
         </MapContainer>
-      </div>
+      </div> */}
     </div>
   );
 };

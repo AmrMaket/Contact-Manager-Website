@@ -11,7 +11,7 @@
 .field{
     display: flex;
     flex-direction: column;
-    width : 50%;
+    width : 80%;
     margin-top: 15px;
 }
 
@@ -21,10 +21,6 @@
     flex-direction: column;
 }
 
-.container{
-    display: flex;
-
-}
 input{
     height: 30px;
 }
@@ -33,11 +29,9 @@ h2{
     margin-left: 40px;
 }
 
-.map{
-    height:  100%;
-    width:  100%;
-    
-}
+/* .map{ */
+        
+/* } */
 .add-button{
     border-radius: 15px;
     margin-bottom: 15px;
