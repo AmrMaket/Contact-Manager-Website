@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phonenumber')->unique();
+            $table->string('phone_number')->unique();
             $table->string('latitude');
             $table->string('longitude');
             $table->timestamps();
