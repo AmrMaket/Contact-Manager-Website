@@ -20,11 +20,16 @@ class ContactController extends Controller
         $contact->latitude = $request->latitude ? $request->latitude : $contact->latitude;
         $contact->longitude = $request->longitude ? $request->longitude : $contact->longitude;
         $contact->save;
+        
+        return response()->json([
+            'status' => 'Contact Added Successfully',
+            'data' => $contact
+        ]);
     }
 
     function getContacts(){
         $contacts = Contact::all();
-        return response(["contacts" => $contacts]);
+        return response()->json($contacts);
     } 
 
 }
