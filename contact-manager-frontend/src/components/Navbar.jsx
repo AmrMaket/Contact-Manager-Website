@@ -1,7 +1,7 @@
 import React from "react";
 import './styles.css';
 
-const Header = () => {
+const Navbar = () => {
   return (
     <div className="ui fixed menu">
       <div className="ui container center">
@@ -11,4 +11,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
