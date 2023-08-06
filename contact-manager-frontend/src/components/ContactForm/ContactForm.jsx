@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import axios from 'axios';
 import './ContactForm.css';
 
 const ContactForm = () => {
@@ -14,8 +15,25 @@ const ContactForm = () => {
       alert('All fields are mandatory!');
       return;
     }
-    // Add contact to the database or do other operations
   };
+
+  const contact = {
+    name: name,
+    phonenumber: phonenumber,
+    latitude: latitude,
+    longitude: longitude,
+  };
+
+  const submitContact = async() => {
+    try {
+      const reponse = await axios.post("http://127.0.0.1:8000/api/add_update_contact", contact);
+      console.log(contact);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+
 
   const position = [51.505, -0.09];
 
@@ -64,7 +82,7 @@ const ContactForm = () => {
               onChange={(e) => setLongitude(e.target.value)}
             />
           </div>
-          <button className='add-button'>Add</button>
+          <button className='add-button' onClick={submitContact}>Add</button>
         </form>
       </div>
       {/* <div className='map'>
