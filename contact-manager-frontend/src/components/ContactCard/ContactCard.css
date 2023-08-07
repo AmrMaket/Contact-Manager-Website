@@ -16,7 +16,7 @@
     border: 5px solid rgb(245, 191, 91);;
     border-radius: 20px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
-  
+    color: rgb(245, 191, 91);
   }
   
   .card :hover ,.card-container :hover{
