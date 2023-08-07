@@ -1,41 +1,35 @@
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import axios from 'axios';
 import './ContactForm.css';
 
-const ContactForm = () => {
-  const [name, setName] = useState('');
-  const [phonenumber, setPhoneNumber] = useState('');
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
+export default function ContactForm() {
+  const [contact, setContact] = useState({
+    name: "",
+    phone_number: "",
+    latitude: "",
+    longitude: "",
+  });
+
+  const handleDataChange = (e) => {
+    setContact({ ...contact, [e.target.id]: e.target.value });
+  };
 
   const add = (e) => {
     e.preventDefault();
-    if (name === '' || phonenumber === '' || latitude === '' || longitude === '') {
+    if (contact.name === '' || contact.phone_number === '' || contact.latitude === '' || contact.longitude === '') {
       alert('All fields are mandatory!');
       return;
     }
   };
 
-  const contact = {
-    name: name,
-    phonenumber: phonenumber,
-    latitude: latitude,
-    longitude: longitude,
-  };
-
-  const submitContact = async() => {
+  const submitContact = async () => {
     try {
-      const reponse = await axios.post("http://127.0.0.1:8000/api/add_update_contact", contact);
+      await axios.post("http://127.0.0.1:8000/api/add_update_contact", contact);
       console.log(contact);
     } catch (e) {
       console.log(e);
     }
-  }
-
-
-
-  const position = [51.505, -0.09];
+  };
 
   return (
     <div className="container">
@@ -46,30 +40,30 @@ const ContactForm = () => {
             <label>Name</label>
             <input
               type="text"
-              name="name"
+              id="name"
               placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              name='name'
+              onChange={handleDataChange}
             />
           </div>
           <div className="field">
             <label>Phone Number</label>
             <input
               type="text"
-              name="phonenumber"
+              name="phone_number"
+              id="phone_number"
               placeholder="Phone Number"
-              value={phonenumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              onChange={handleDataChange}
             />
           </div>
           <div className="field">
             <label>Latitude</label>
             <input
               type="text"
-              name="latitude"
+              id="latitude"
               placeholder="Latitude"
-              value={latitude}
-              onChange={(e) => setLatitude(e.target.value)}
+              name='latitude'
+              onChange={handleDataChange}
             />
           </div>
           <div className="field">
@@ -77,30 +71,14 @@ const ContactForm = () => {
             <input
               type="text"
               name="longitude"
+              id="longitude"
               placeholder="Longitude"
-              value={longitude}
-              onChange={(e) => setLongitude(e.target.value)}
+              onChange={handleDataChange}
             />
           </div>
-          <button className='add-button' onClick={submitContact}>Add</button>
+          <button type="submit" className='add-button' onClick={submitContact}>Add</button>
         </form>
       </div>
-      {/* <div className='map'>
-        <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {latitude && longitude && <Marker position={[latitude, longitude]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>}
-        </MapContainer>
-      </div> */}
     </div>
   );
 };
-
-export default ContactForm;
-

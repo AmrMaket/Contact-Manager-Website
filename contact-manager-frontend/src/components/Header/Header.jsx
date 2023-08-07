@@ -10,9 +10,8 @@ const Header = () => {
                 {/* <img src="../../assets/logo.jpg" alt="logo" className="logo"/> */}
                 <h1>Contact Manager</h1>
             </div>
-            <a href='./ContactCard'>View All Contacts</a>
-            <a href='./ContactForm'>Create Contacts</a>
-            <a href='./map'>Map</a>
+            <a href='./cards'>View All Contacts</a>
+            <a href='./addContacts'>Create Contacts</a>
         </div>
      );
 }
