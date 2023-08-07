@@ -14,12 +14,12 @@ class ContactController extends Controller
             $contact = Contact::find($id);
         }
 
-        $contact->$id = $request->id;
+        $contact->id = $request->id;
         $contact->name = $request->name ? $request->name : $contact->name;
         $contact->phone_number = $request->phone_number ? $request->phone_number : $contact->phone_number;
         $contact->latitude = $request->latitude ? $request->latitude : $contact->latitude;
         $contact->longitude = $request->longitude ? $request->longitude : $contact->longitude;
-        $contact->save;
+        $contact->save();
         
         return response()->json([
             'status' => 'Contact Added Successfully',
