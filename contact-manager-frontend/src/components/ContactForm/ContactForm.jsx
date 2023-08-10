@@ -32,6 +32,20 @@ export default function ContactForm() {
   };
 
   return (
+    <>
+      <div className='container'>
+        <div className='navbar'>
+          <div className='logo'>
+            <h1>Contact Manager</h1>
+          </div>
+            <a href='./'>Home</a>
+            <a href='./cards'>View All Contacts</a>
+            <a href='./addContacts'>Create Contacts</a>
+            <a href='./map'>Map</a>
+        </div> 
+        <div className='body'>
+        </div>
+      </div>      
     <div className="container">
       <div className='margin'>
         <h2>Add Contact</h2>
@@ -80,5 +94,6 @@ export default function ContactForm() {
         </form>
       </div>
     </div>
+    </>
   );
 };

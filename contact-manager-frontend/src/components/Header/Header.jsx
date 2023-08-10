@@ -5,14 +5,23 @@ import "./Header.css";
 
 const Header = () => {
     return ( 
-        <div className='navbar'>
-            <div className='logo'>
-                {/* <img src="../../assets/logo.jpg" alt="logo" className="logo"/> */}
-                <h1>Contact Manager</h1>
+        <>
+            <div className='container'>
+                <div className='navbar'>
+                    <div className='logo'>
+                        <h1>Contact Manager</h1>
+                    </div>
+                    <a href='./'>Home</a>
+                    <a href='./cards'>View All Contacts</a>
+                    <a href='./addContacts'>Create Contacts</a>
+                    <a href='./map'>Map</a>
+                </div> 
+                <div className='body'>
+                    <span>Welcome TO Contact Manager</span>
+                </div>
             </div>
-            <a href='./cards'>View All Contacts</a>
-            <a href='./addContacts'>Create Contacts</a>
-        </div>
+        </>
+        
      );
 }
  
